@@ -24,8 +24,21 @@
           <li class="nav-item signin ms-2 " >
             <button type="button" class="btn inside" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Sign In
-            </button>
-            <a href="/register" class="text-xs font-bold uppercase">Register</a>
+            </button>      
+            </li>
+            <li class="nav-item singout ms-2">
+              @auth
+              {{-- When the user is logged --}}
+            <span class="text-xs font-bold uppercase">Welcome, {{auth()->user()->name}}</span>
+            <form method="POST" action="/logout" class="text-xs font-semibold text-blue-500 ml-6">
+              @csrf
+              <button type="submit">Logout</button>
+            </form>
+            @else
+            {{-- When the user is logged out. ie. The guest session --}}
+            <a href="/login" class="text-xs font-bold uppercase">Login</a>
+            <a href="/register" class= "ml-6 text-xs font-bold uppercase">Register</a>
+            @endauth
             </li>
         </ul>
       </div>

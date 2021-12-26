@@ -22,10 +22,11 @@ class RegisterController extends Controller
             'password'=>'required|min:8'
         ]);
       
-        User::create($attributes);
+        $user=User::create($attributes);
 
+        auth()->login($user);
 
-        redirect('/')->with('success', 'Your account has been created.');
+       return redirect('/')->with('success', 'Your account has been created.');
 
     
     }
