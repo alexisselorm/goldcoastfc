@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Models\News;
 use App\Models\User;
 use App\Models\Player;
@@ -31,7 +32,7 @@ Route::get('players/{player:slug}',[PlayerController::class, 'showById']);
 // News Routes and Controllers
 Route::get('news', [NewsController::class,'all']);
 Route::get('news/{single_news:slug}', [NewsController::class,'single_news']);
-
+Route::post('news/{single_news:slug}/comments',[CommentController::class,'store']);
 
 
 Route::get('history', function () {
