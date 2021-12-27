@@ -35,5 +35,8 @@ class News extends Model
     public function author(){
         return $this->belongsTo(User::class,'user_id');
     }
+    public function comments(){
+        return $this->hasMany(Comments::class);
+    }
 }
 
