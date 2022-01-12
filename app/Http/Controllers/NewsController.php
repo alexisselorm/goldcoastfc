@@ -13,7 +13,7 @@ class NewsController extends Controller
 
         // return view('news', 
         // ['news'=>News::all()]);
-        return view('news', 
+        return view('news.news', 
         ['news'=>News::latest()->with('author')->simplePaginate(10)->withQueryString()
     
         ]);
@@ -24,5 +24,11 @@ class NewsController extends Controller
         ['single_news'=>$single_news
         
         ]);
+    }
+    public function create(){
+        if(auth()->guest()){
+            abort(403);
+        }
+        return view('news.create');
     }
 }

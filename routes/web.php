@@ -63,3 +63,5 @@ Route::post('register',[RegisterController::class,'store'])->middleware('guest')
 Route::get('login',[SessionsController::class,'create'])->middleware('guest');
 Route::POST('sessions',[SessionsController::class,'store'])->middleware('guest');
 Route::post('logout',[SessionsController::class,'destroy'])->middleware('auth');
+
+Route::get('admin/news/create', [NewsController::class,'create'])->middleware('admin');
