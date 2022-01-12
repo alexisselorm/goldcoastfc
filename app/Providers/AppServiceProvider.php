@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\Newsletter;
+use App\Services\MailchimpNewsletter;
 use MailchimpMarketing\ApiClient;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
@@ -23,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
             'apiKey' => config('services.mailchimp.key'),
             'server' => 'us20'
         ]);
-        return new Newsletter($client);
+        return new MailchimpNewsletter($client);
 
      });
     }
