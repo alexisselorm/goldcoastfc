@@ -14,7 +14,7 @@
     <!-- MDBootstrap CSS -->
 
     <!-- Fontawesome CSS -->
-    <script defer src="node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/style.css">

@@ -1,15 +1,19 @@
 <?php
 
-use App\Http\Controllers\CommentController;
 use App\Models\News;
 use App\Models\User;
 use App\Models\Player;
 use App\Models\Position;
+use App\Services\Newsletter;
+use MailchimpMarketing\ApiClient;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use Illuminate\Validation\ValidationException;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +25,9 @@ use App\Http\Controllers\SessionsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Test MailChimp
+Route::post('newsletter', NewsletterController::class);
+
 Route::get('/', function () {
     
     return view('home');

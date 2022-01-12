@@ -8,13 +8,20 @@ use Illuminate\Http\Request;
 class CommentController extends Controller
 {
     //
-    public function store(News $single_news){
+    /**
+     * Undocumented function
+     *
+     * @param News $single_news
+     * @return void
+     */
+    public function store(News $single_news)
+    {
         request()->validate([
-            'body'=>'required'
+            'body' => 'required',
         ]);
         $single_news->comments()->create([
-            'user_id'=>request()->user()->id,
-            'body'=>request('body')
+            'user_id' => request()->user()->id,
+            'body' => request('body'),
         ]);
 
         return back();
