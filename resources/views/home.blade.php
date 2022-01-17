@@ -15,41 +15,24 @@
   </div>
 
     <!-- Cards -->
+
     <div class="card-group m-2 ">
       <div class="card mx-2">
-        <img src="/images/akatsuki.jpg" class="card-img-top" alt="...">
+        @foreach ( $news as $single_news)
+        {{-- <img src="{{asset('storage/'.$single_news->thumbnail)}}" class="card-img-top" alt="..."> --}}
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <a href="/news/{{$single_news->slug}}">{{$single_news->title}}</a>
+          <p class="card-text">{{$single_news->excerpt}}</p>
+          <p>
+            Written by <a href="/authors/{{$single_news->author->username}}">{{$single_news->author->name}}</a>
+        </p>
 
         </div>
         <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
+          <small class="text-muted"> Published <time>{{$single_news->created_at->diffForHumans()}}</time> </small>
         </div>
-      
-    </div>
-      <div class="card mx-2">
-        <img src="/images/akatsuki.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-      <div class="card mx-2">
-        <img src="/images/akatsuki.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-          
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-    </div>
+    @endforeach
+    
 
 
 
@@ -99,6 +82,7 @@
 <button type="submit">Subscribe</button>
 </div>
 </form>
+
 
 
 

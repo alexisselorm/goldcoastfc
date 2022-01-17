@@ -9,6 +9,7 @@
        </p>
         <div>
             {{ $single_news->body }}
+            <img src="{{asset('storage/'.$single_news->thumbnail)}}" alt="Image">
         </div>
         <p class="mt-4 block text-gray-400 text-xs"> Published <time>{{$single_news->created_at->diffForHumans()}}</time> </p>
        {{-- Post a comment, if only you're logged in --}}

@@ -18,6 +18,7 @@ class CreatePlayersTable extends Migration
             $table->string('slug');
             $table->string('fname');
             $table->string('lname');
+            $table->string('picture')->nullable();
             $table->unsignedSmallInteger('weight');
             $table->unsignedSmallInteger('height');
             $table->string('country');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -20,15 +21,9 @@ class NewsController extends Controller
     }
 
     public function single_news(News $single_news){
-        return view('single_news', 
+        return view('news.single_news', 
         ['single_news'=>$single_news
         
         ]);
-    }
-    public function create(){
-        if(auth()->guest()){
-            abort(403);
-        }
-        return view('news.create');
     }
 }

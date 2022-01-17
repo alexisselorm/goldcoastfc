@@ -20,6 +20,7 @@ class CreateNewsTable extends Migration
             $table->string('title');
             $table->string('excerpt');
             $table->string('body');
+            $table->string('thumbnail')->nullable();
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
         });

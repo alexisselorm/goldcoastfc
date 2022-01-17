@@ -13,7 +13,7 @@
             
             </p>
             <p>
-                Wriiten by <a href="/authors/{{$single_news->author->username}}">{{$single_news->author->name}}</a>
+                Written by <a href="/authors/{{$single_news->author->username}}">{{$single_news->author->name}}</a>
             </p>
             <p class="mt-4 block text-gray-400 text-xs"> Published <time>{{$single_news->created_at->diffForHumans()}}</time> </p> 
         </div>
