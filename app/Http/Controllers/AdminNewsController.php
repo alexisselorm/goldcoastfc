@@ -18,10 +18,15 @@ class AdminNewsController extends Controller
 
     public function store(){
 
-        $attributes=$this->validateNews(new News());
+        $attributes=request()->validate([
+            'title'=>'required',
+            'thumbnail' =>'required|image',
+            'slug'=> ['required', Rule::unique('news','slug')],
+            'excerpt' =>'required',
+            'body' =>'required'
+        ]);
         $attributes['user_id']=auth()->id();
         $attributes['thumbnail']=request()->file('thumbnail')->store('thumbnails');
-
         // ddd(auth()->user()->username);
 
 
@@ -42,7 +47,13 @@ class AdminNewsController extends Controller
 
     }
     public function update(News $single_news){
-        $attributes=$this->validateNews($single_news);
+        $attributes=request()->validate([
+            'title'=>'required',
+            'thumbnail' =>'image',
+            'slug'=> ['required', Rule::unique('news','slug')->ignore($single_news->id)],
+            'excerpt' =>'required',
+            'body' =>'required'
+        ]);
         if(isset($attributes['thumbnail'])){
             $attributes['thumbnail']=request()->file('thumbnail')->store('thumbnails');
         }
@@ -54,18 +65,6 @@ class AdminNewsController extends Controller
         $single_news->delete();
 
         return back()->with('success','Post deleted. Grr');
-    }
-    protected function validateNews(?News $single_news = null): array
-    {
-        $single_news ??=  new News();
-        return request()->validate([
-            'title'=>'required',
-            'thumbnail' =>$single_news->exists ?['image']:['required|image'],
-            'slug'=> ['required', Rule::unique('news','slug')->ignore($single_news)],
-            'excerpt' =>'required',
-            'body' =>'required'
-        ]);   
-        
     }
 
 }
