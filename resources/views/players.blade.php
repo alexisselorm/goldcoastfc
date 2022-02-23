@@ -1,10 +1,11 @@
 @extends('layout.master')
 
 @section('content')
-@foreach ($players as $player)
+
+{{-- @foreach ($players as $player)
     <article>
         <h1><a href="/players/<?= $player->slug;?>">
-            {{$player->fname}} {{$player->lname}}
+            {{$players->fname}} {{$player->lname}}
         </a>
         </h1>
         <div>
@@ -13,5 +14,13 @@
             </p>
         </div>
     </article>
-    @endforeach
+        @endforeach --}}
+    
+    
+        @foreach ($players as $player)
+        <h1>
+            <a href="/players/<?= $player->slug;?>">{{($player->fname)}} {{$player->lname}}
+            </a>
+        </h1>
+        @endforeach
   @endsection 

@@ -16,7 +16,7 @@ class NewsController extends Controller
         return view('news.news', 
         ['news'=>News::latest()->with('author')->simplePaginate(10)->withQueryString()
     
-        ]);
+        ]); 
     }
 
     public function single_news(News $single_news){

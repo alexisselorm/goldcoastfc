@@ -6,7 +6,7 @@
         <h1>{{ $player->lname }}</h1>
 
         <div>
-            {{ $player->position->name }}
+            <img src="{{ $player->picture }}" alt="Image?">
         </div>
     </article>
 

@@ -37,7 +37,7 @@ Route::get('/', function () {
 });
 // Player Routes and Controllers
 Route::get('/players', [PlayerController::class,'all']);
-Route::get('players/{player:slug}',[PlayerController::class, 'showById']);
+Route::get('players/{player:slug}',[PlayerController::class, 'show']);
 
 // News Routes and Controllers
 Route::get('news', [NewsController::class,'all']);

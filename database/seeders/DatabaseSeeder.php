@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\News;
-use App\Models\User;
+use App\Models\Player;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        News::factory(10)->create();
+        // News::factory(10)->create();
+        Player::factory(20)->create();
     }
 }
