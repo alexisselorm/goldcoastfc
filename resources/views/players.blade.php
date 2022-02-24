@@ -17,10 +17,14 @@
         @endforeach --}}
     
     
-        @foreach ($players as $player)
+        @forelse ($players as $player)
         <h1>
             <a href="/players/<?= $player->slug;?>">{{($player->fname)}} {{$player->lname}}
             </a>
         </h1>
-        @endforeach
+        @empty
+        <p>Nothing to show here cos you suck</p>
+        
+        @endforelse
+
   @endsection 
