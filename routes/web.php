@@ -49,11 +49,11 @@ Route::get('history', function () {
     return view('history');
 });
 
-Route::get('positions/{position:slug}', function(Position $position){
-    return view('players',[
-        'players' => $position->players->load(['position'])
-    ]);
-});
+// Route::get('positions/{position:slug}', function(Position $position){
+//     return view('players',[
+//         'players' => $position->players->load(['position'])
+//     ]);
+// });
 Route::get('authors/{author:username}', function(User $author){
     return view('news.news',[
         'news'=>$author->news()->latest()->paginate(10)

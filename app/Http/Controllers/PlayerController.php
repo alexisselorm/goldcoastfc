@@ -9,12 +9,21 @@ use Illuminate\Http\Request;
 class PlayerController extends Controller
 {
     //
-    public function all() {
+//     public function all() {
+
+//     return view('players', 
+//     ['players'=>Player::latest()->with('position')->get(),
+//      'positions'=>Position::all()
+//         ]
+// );
+
+public function all() {
 
     return view('players', 
-    ['players'=>Player::latest()->with('position')->get()
+    ['positions' => Position::with(['players'])->get()
         ]
 );
+
     }
 
     public  function show(Player $player){
