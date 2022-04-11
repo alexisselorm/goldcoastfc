@@ -4,33 +4,44 @@ namespace App\Http\Controllers;
 
 use App\Models\Player;
 use App\Models\Position;
-use Illuminate\Http\Request;
 
 class PlayerController extends Controller
 {
     //
 //     public function all() {
 
-//     return view('players', 
+//     return view('players',
 //     ['players'=>Player::latest()->with('position')->get(),
 //      'positions'=>Position::all()
 //         ]
 // );
 
-public function all() {
+    public function all()
+    {
+//  Used in laravel
+        return view('players',
+            ['positions' => Position::with(['players'])->get(),
+            ]
+        );
 
-    return view('players', 
-    ['positions' => Position::with(['players'])->get()
-        ]
-);
+// Sent as a json object(API)
+        // $positions = Position::with(['players'])->get();
+        // return response()->json($positions, 200);
 
     }
 
-    public  function show(Player $player){
-        return view('player',[
-            'player' => $player
+    public function show(Player $player)
+    {
+        // return view('player', [
+        //     'player' => $player,
+        // ]);
+
+        // API Implementation
+        // public function show($id)
+        // {
+        return response()->json([
+            'player' => $player,
         ]);
+        // }
     }
-
-
 }
