@@ -2,25 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
 class SessionsController extends Controller
 {
     //
-    public function destroy(){
+    public function destroy()
+    {
         auth()->logout();
-        return redirect('/')->with('success','User succesfully logged out');
+
+        return redirect('/')->with('success', 'User succesfully logged out');
     }
-    public function create(){
+
+    public function create()
+    {
         return view('sessions.create');
     }
-    
-    public function store(){
+
+    public function store()
+    {
         // Validate the requests
-       $attributes= request()->validate([
+        $attributes = request()->validate([
             'email'=>'required|email',
-            'password'=>'required'
+            'password'=>'required',
         ]);
 
         // attempt to authenticate and log in the user
@@ -28,13 +32,10 @@ class SessionsController extends Controller
         if (auth()->attempt($attributes)) {
             // If the auth failed
             throw ValidationException::withMessages(['email'=>'Your provided credentials could not be verified']);
-            
         }
-                // If successful, redirect with a succes flash message
-                session()->regenerate();
-                return redirect('/')->with('success', 'Welcome back');
+        // If successful, redirect with a succes flash message
+        session()->regenerate();
 
-
-
+        return redirect('/')->with('success', 'Welcome back');
     }
 }

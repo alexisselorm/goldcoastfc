@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
-use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
@@ -11,7 +10,7 @@ class CommentController extends Controller
     /**
      * Undocumented function
      *
-     * @param News $single_news
+     * @param  News  $single_news
      * @return void
      */
     public function store(News $single_news)
@@ -25,6 +24,5 @@ class CommentController extends Controller
         ]);
 
         return back();
-
     }
 }

@@ -17,7 +17,6 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
 
     {{-- React script --}}
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- External CSS -->
     <link rel="stylesheet" href="/style.css">
 
@@ -32,12 +31,14 @@
 <body>
     @include('components.top-nav')
     @include('components.main-nav')
-    @yield('content')
-
+    <div class="container">
+        @yield('content')
+    </div>
     @include('components.scripts')
     @include('components.footer')
 
     @include('components.flash')
+
 </body>
 
 </html>

@@ -16,9 +16,9 @@ class NewsFactory extends Factory
     {
         return [
             'user_id'=>User::factory(),
-            'slug'=>$this->faker-> sentence(),
+            'slug'=>$this->faker->sentence(),
             'title'=>$this->faker->sentence(),
-            'excerpt'=>$this->faker-> sentence(),
+            'excerpt'=>$this->faker->sentence(),
             'body'=>$this->faker->paragraph(),
         ];
     }

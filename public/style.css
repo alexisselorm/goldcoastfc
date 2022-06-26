@@ -4,8 +4,8 @@
 .teamlogo{
     /* background-color: #F95800; */
     background-image: url("../images/full-width\ gold.png");
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
 
 }
@@ -16,16 +16,16 @@
     font-weight: bold;
     margin-right: 250px;
     font-size: 30px;
-    
+
 }
 .bgcolor{
-    
+
      background-color: #fff;
 }
 
 ul li a{
     font-size:25px;
-    
+
 }
 .search{
     background-color: #F95800;
@@ -53,10 +53,9 @@ ul li a:hover{
     border-bottom: 1px solid white;
 }
 .jumbotron{
-    background-image: url("../images/jimage.jpg");
-    height: 500px;
-    background-position: center; 
-    background-repeat: no-repeat; 
+    width: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     margin:0 !important;
     padding: 0;
@@ -68,8 +67,8 @@ ul li a:hover{
 .match{
     background-image: url("/images/match_bg.jpg");
     height: 500px;
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     margin:0 !important;
     padding: 0;
@@ -335,3 +334,51 @@ body{
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+@media screen and (max-width:450px) {
+    body{
+        background-color: #000;
+    }
+
+}
+.box{
+    width:100%;
+
+}
+@media screen and (min-width:850px) {
+
+.gk{
+    width: 50%;
+}
+.md{
+    width: 50%;
+}
+.fw{
+    width: 50%;
+}
+.df{
+    width: 50%;
+}
+.news_item{
+    width:33.15%;
+
+
+}
+.jumbotron{
+    width: 70%;
+}
+.cards{
+    width:30%;
+    border: 2px solid brown;
+}
+.card-body{
+    border: 2px solid black;
+
+}
+}

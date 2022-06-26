@@ -1,4 +1,5 @@
-     
+
+{{-- <div class="container"></div> --}}
  <!-- Main Nav Bar -->
   <nav class="navbar navbar-expand-lg navbar-light py-5 teamlogo">
     <div class="container-fluid">
@@ -33,3 +34,4 @@
       </div>
     </div>
   </nav>  
+{{-- </div> --}}

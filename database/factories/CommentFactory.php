@@ -19,7 +19,7 @@ class CommentFactory extends Factory
             //
             'news_id'=> News::factory(),
             'user_id' => User::factory(),
-            'body' => $this->faker->paragraph()
+            'body' => $this->faker->paragraph(),
         ];
     }
 }

@@ -14,34 +14,32 @@ class PlayerController extends Controller
 //     ['players'=>Player::latest()->with('position')->get(),
 //      'positions'=>Position::all()
 //         ]
-// );
+    // );
 
     public function all()
     {
-//  Used in laravel
+        //  Used in laravel
         return view('players',
             ['positions' => Position::with(['players'])->get(),
             ]
         );
 
-// Sent as a json object(API)
+        // Sent as a json object(API)
         // $positions = Position::with(['players'])->get();
         // return response()->json($positions, 200);
-
     }
 
     public function show(Player $player)
     {
-        // return view('player', [
-        //     'player' => $player,
-        // ]);
-
-        // API Implementation
-        // public function show($id)
-        // {
-        return response()->json([
+        return view('player', [
             'player' => $player,
         ]);
+
+        // API Implementation
+
+        // return response()->json([
+        //     'player' => $player,
+        // ]);
         // }
     }
 }

@@ -1,78 +1,58 @@
 @extends('layout.master')
 
 @section('content')
-
     <!-- Button trigger modal -->
     <!-- Jumbroton -->
-    <div class="bg-light p-5 rounded-lg my-1 jumbotron">
-        <div id="info" class="m-0">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
-                attention to featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <a class="btn inside btn-lg" href="#" role="button">Read more <i class="fas fa-arrow-right"></i></a>
-        </div>
-    </div>
-
-    <!-- Cards -->
-    <div class="card-group m-2 ">
-        <div class="card mx-2">
-            @foreach ($news as $single_news)
-                {{-- <img src="{{asset('storage/'.$single_news->thumbnail)}}" class="card-img-top" alt="..."> --}}
-                <div class="card-body">
-                    <a href="/news/{{ $single_news->slug }}">{{ $single_news->title }}</a>
-                    <p class="card-text">{{ $single_news->excerpt }}</p>
-                    <p>
-                        Written by <a
-                            href="/authors/{{ $single_news->author->username }}">{{ $single_news->author->name }}</a>
-                    </p>
-
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted"> Published <time>{{ $single_news->created_at->diffForHumans() }}</time>
-                    </small>
-                </div>
-            @endforeach
-
-
-
-
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-
-                            <button type="button" class="btn inside">Sign In</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Next Match Jumbotron -->
-            <div class="bg-light p-5 rounded-lg m-3 match">
+    <div class="container">
+        <div class="bg-dark p-5 rounded-lg my-1 box jumbotron">
+            <div id="info" class="m-0">
                 <h1 class="display-4">Hello, world!</h1>
                 <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
                     attention to featured content or information.</p>
                 <hr class="my-4">
                 <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                <a class="btn inside btn-lg" href="#" role="button">Read more <i class="fas fa-arrow-right"></i></a>
             </div>
+        </div>
 
-            {{-- Newsletter --}}
+        <!-- Cards -->
+        <div class="card-group cards">
+            <div class="card">
+                @foreach ($news as $single_news)
+                    {{-- <img src="{{asset('storage/'.$single_news->thumbnail)}}" class="card-img-top" alt="..."> --}}
+                    <div class="card-body">
+                        <a href="/news/{{ $single_news->slug }}">{{ $single_news->title }}</a>
+                        <p class="card-text">{{ $single_news->excerpt }}</p>
+                        <p>
+                            Written by <a
+                                href="/authors/{{ $single_news->author->username }}">{{ $single_news->author->name }}</a>
+                        </p>
+                        <small class="text-muted"> Published
+                            <time>{{ $single_news->created_at->diffForHumans() }}</time>
+                        </small>
+
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+        <!-- Next Match Jumbotron -->
+        <div class="bg-black p-5 rounded-lg m-3 match">
+            <h1 class="display-4">Hello, world!</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling
+                extra
+                attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.
+            </p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
+
+        {{-- Newsletter --}}
+        <div class="box newsletter">
             <form action="/newsletter" method="POST">
                 @csrf
-                <div class="px-">
+                <div>
                     <label for="email" class="hidden lg:inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path
@@ -89,4 +69,6 @@
                     <button type="submit">Subscribe</button>
                 </div>
             </form>
-        @endsection
+        </div>
+    </div>
+@endsection

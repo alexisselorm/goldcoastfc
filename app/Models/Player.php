@@ -9,17 +9,10 @@ class Player extends Model
 {
     use HasFactory;
 
-    protected $fillable=[];
+    protected $fillable = [];
 
-    public function position(){
+    public function position()
+    {
         return $this->belongsTo(Position::class);
     }
-
-    
-
-
-
-
-
-
 }
