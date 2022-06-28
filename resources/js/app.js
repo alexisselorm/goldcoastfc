@@ -1,5 +1,4 @@
 
-require('./bootstrap');
-
+import './bootstrap';
+import '../css/app.css';
 // React Components
-require('./components/Players')
